@@ -1,44 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
     const plane = document.getElementById("plane");
     const cloudBackground = document.getElementById("cloud-background");
-    const text1 = document.getElementById("text1");
-    const text2 = document.getElementById("text2");
-    const text3 = document.getElementById("text3");
+    const textContainer = document.getElementById("text-container");
     const heart = document.getElementById("heart");
 
-    let step = 0;
-
-    function showText(element, delay) {
-        setTimeout(() => {
-            element.style.display = "block";
-        }, delay);
-    }
-
-    function fadeOut(element, delay) {
-        setTimeout(() => {
-            element.style.display = "none";
-        }, delay);
-    }
-
-    function loopAnimation() {
-        if (step === 0) {
-            showText(text1, 0);
-            step++;
-        } else if (step === 1) {
-            fadeOut(text1, 2000);
-            showText(text2, 4000);
-            step++;
-        } else if (step === 2) {
-            fadeOut(text2, 2000);
-            showText(text3, 4000);
-            showText(heart, 4000);
-            step++;
-        }
-    }
-
-    document.addEventListener("click", () => {
-        loopAnimation();
+    plane.addEventListener("animationend", () => {
+        textContainer.style.display = "block"; // Show text after plane animation ends
     });
 
-    loopAnimation();
+    heart.addEventListener("animationend", () => {
+        // Stop animation at heart picture
+        textContainer.style.animation = "none";
+        heart.style.animation = "none";
+    });
 });
+
