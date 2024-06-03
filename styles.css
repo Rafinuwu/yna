@@ -14,9 +14,10 @@ body {
 #plane {
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: -20%; /* Off-screen initially */
     transform: translate(-50%, -50%);
-    animation: fly 5s linear infinite;
+    width: 30%; /* Scale down the plane */
+    animation: fly 5s linear forwards;
 }
 
 #cloud-background {
@@ -24,7 +25,7 @@ body {
     width: 100%;
     height: 100%;
     background: url('clouds.jpg') no-repeat center center/cover;
-    animation: clouds 5s linear infinite;
+    animation: clouds 5s linear forwards;
 }
 
 #text-container {
@@ -44,51 +45,14 @@ body {
     display: none;
 }
 
-#heart-container {
-    position: relative;
-    display: none;
-}
-
 #heart {
     width: 200px;
     height: 200px;
-    background: red;
-    border-radius: 50% 50% 0 0;
-    transform: rotate(-45deg);
-    margin-top: 50px;
-}
-
-#heart:before,
-#heart:after {
-    content: "";
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: red;
-}
-
-#heart:before {
-    top: -100px;
-    left: 0;
-}
-
-#heart:after {
-    top: 0;
-    left: 100px;
-}
-
-#yeana-photo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: none;
 }
 
 @keyframes fly {
     from {
-        left: -10%;
+        left: -20%;
     }
     to {
         left: 110%;
