@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
     const plane = document.getElementById("plane");
     const cloudBackground = document.getElementById("cloud-background");
@@ -10,8 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     heart.addEventListener("animationend", () => {
         // Stop animation at heart picture
-        textContainer.style.animation = "none";
-        heart.style.animation = "none";
+        plane.style.animation = "none";
+        cloudBackground.style.animation = "none";
     });
 });
-
