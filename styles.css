@@ -14,9 +14,9 @@ body {
 #plane {
     position: absolute;
     top: 50%;
-    left: -20%; /* Off-screen initially */
+    left: 100%; /* Start off-screen */
     transform: translate(-50%, -50%);
-    width: 30%; /* Scale down the plane */
+    width: 30%;
     animation: fly 5s linear forwards;
 }
 
@@ -38,24 +38,27 @@ body {
     align-items: center;
     color: white;
     text-align: center;
+    opacity: 0; /* Initially hidden */
+    animation: fade-in 5s linear forwards;
 }
 
 .stranger-things {
-    font-family: 'Stranger Things', sans-serif; /* Use the Stranger Things font */
-    display: none;
+    font-family: 'Stranger Things', sans-serif;
 }
 
 #heart {
     width: 200px;
     height: 200px;
+    opacity: 0; /* Initially hidden */
+    animation: fade-in 5s linear forwards;
 }
 
 @keyframes fly {
     from {
-        left: -20%;
+        left: 100%;
     }
     to {
-        left: 110%;
+        left: -20%;
     }
 }
 
@@ -65,5 +68,14 @@ body {
     }
     to {
         background-position: -100% 0;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
